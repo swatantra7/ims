@@ -1,0 +1,5 @@
+<% if @member.errors.blank? %>
+  $('.member').modal('hide');
+  $('table tbody').append('<%= j render "member_row", member: @member %>');
+<% else %>
+<% end %>

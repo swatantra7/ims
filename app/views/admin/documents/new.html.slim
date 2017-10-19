@@ -1,0 +1,19 @@
+= form_for [:admin, @document], html: { class: 'form-horizontal' } do |f|
+  .form-group
+    label.col-sm-2 = t('.upload_files')
+    .col-sm-9
+      = f.file_field :document_list
+  .form-group
+    .col-sm-12
+      = f.submit I18n.t('general.submit'), class: 'btn btn-success submit-img'
+      |&nbsp;
+      = link_to 'Back', admin_documents_path, rel: "modal:close", class: 'btn btn-danger'
+javascript:
+  if ($('#document_document_list').val() == ''){
+    $('.submit-img').hide()
+  }
+  $('#document_document_list').change(function(){
+    $('.submit-img').show()
+  });
+
+

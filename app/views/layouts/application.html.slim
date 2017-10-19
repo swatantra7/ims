@@ -1,0 +1,81 @@
+doctype html
+html
+  head
+    title
+      | Ims
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    - if user_signed_in?
+      = javascript_include_tag 'navigation/navigation'
+  body
+    header
+      .container-fluid.custom-head
+        .col-sm-2
+          = image_tag('computer_logo.png', size: "80x80",  class: "center")
+        .col-sm-5
+          = image_tag('name_logo.gif', size: '100*100' )
+        .col-sm-5
+          .pull-right
+            - if user_signed_in?
+              = link_to image_tag('logout_logo.png'), destroy_user_session_path, method: :delete,
+                data: { confirm: 'Are you sure you want to logout?' }, class: 'icon btn'
+            - else
+              = link_to image_tag('admin_login.png'), new_user_session_path, class: 'icon btn'
+      nav.navbar-navbar-default.custom-nav 
+        .container-fluid
+          .navbar-header
+            button.navbar-toggle data-toggle="collapse" data-target="#myNavbar" type = 'button'
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          #myNavbar.collapse.navbar-collapse
+            - if user_signed_in?
+              = render 'layouts/user_navigation'
+            - else
+              = render 'layouts/navigation'
+      - if user_signed_in?
+        .page-content
+          = render_navigation level: 3, expand_all: true
+    .space-20      
+      .container
+        - if notice
+          p.alert.alert-success
+            = notice
+        - if alert
+          p.alert.alert-danger
+            = alert
+    = yield
+  - if user_signed_in?
+    .footer.space-20
+      .container.no-padding
+        .col-md-6.no-padding.col-xs-7.col-sm-8
+          small.copyright Copyright © RBA Computers #{Time.now.year}, All Rights Reserved
+        .pull-right
+          span RBA
+  - else
+    br
+    .quick-link
+      .container
+        .col-sm-4
+          .row
+            h4 = 'Address:'
+            p style= "color:#ccc;"
+              | Dilip Electronic Main Road Lachragardh
+          .row
+        .col-sm-1
+        .col-sm-3
+          .row
+            h4 = 'Contact:'
+            p style= "color:#ccc;"
+              | +91 - 7544802173 
+              br
+              | +91 - 9430742215
+          .row
+        .col-sm-1
+        .col-sm-3
+          .row
+            h4 = 'Email:'
+            p style= "color:#ccc;"
+              | rbacomputercenter@gmail.com
+          .row

@@ -1,0 +1,62 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+
+  general:
+    submit: 'Submit'
+    updated_at: 'Updated At'
+    created_at: 'Created At'
+    reference_id: 'Reference Id'
+  admin:
+    courses:
+      index:
+        add_new_course: &add_new_course 'Add New Course'
+        name: &name 'Name'
+        courses: 'Courses'
+        duration_of_course: &duration_of_course 'Course Duration'
+      form:
+        name: *name
+        duration_of_course: *duration_of_course
+        add_new_course: *add_new_course
+    members:
+      index:
+        name: *name
+        email:  &email 'Email'
+        address: 'Address'
+        fees: &fees 'Fees'
+        mobile_number: &mobile_number Mobile Number
+      form:
+        first_name: 'First Name'
+        middle_name: 'Middle Name'
+        last_name: 'Last Name'
+        email: *email
+        mobile_number: *mobile_number
+        fees: *fees
+        add_new_student: 'Add New Student'
+    documents:
+      new:
+        upload_files: 'Upload Images'
+
+
+
+

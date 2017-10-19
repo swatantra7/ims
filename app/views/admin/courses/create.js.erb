@@ -1,0 +1,6 @@
+<% if @course.errors.blank? %>
+  $('.course').modal('hide');
+  $('table tbody').append('<%= j render "course_row", course: @course %>');
+<% else %>
+  
+<% end %>

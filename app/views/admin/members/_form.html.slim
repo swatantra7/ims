@@ -1,0 +1,39 @@
+.member.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type='button' &times
+        h4.text-center = t('.add_new_student')
+      = form_for [:admin, @member], remote: true, html: { class: 'form-horizontal' } do |f|
+        = hidden_field_tag :course, params[:course]
+        = f.fields_for :address, @address do |address| 
+          .modal-body
+            .form-group
+              label.control-label.col-sm-4 = t('.first_name')
+              .col-sm-8
+                = address.text_field :first_name, class: 'form-control'
+            .form-group
+              label.control-label.col-sm-4 = t('.middle_name')
+              .col-sm-8
+                = address.text_field :middle_name, class: 'form-control'
+            .form-group
+              label.control-label.col-sm-4 = t('.last_name')
+              .col-sm-8
+                = address.text_field :last_name, class: 'form-control'
+            .form-group
+              label.control-label.col-sm-4 = t('.email')
+              .col-sm-8
+                = address.text_field :email_id, class: 'form-control'
+            .form-group
+              label.control-label.col-sm-4 = t('.mobile_number')
+              .col-sm-8
+                = address.text_field :mobile_number, class: 'form-control'
+            .form-group
+              label.control-label.col-sm-4 = t('.fees')
+              .col-sm-8
+                = f.text_field :fees, class: 'form-control'
+        .form-group
+          .modal-footer
+            .col-sm-12.pull-right
+              = f.submit 'save', data: {confirm: 'are you sure want to add new student'}, 
+                class: 'btn btn-success'
