@@ -55,7 +55,8 @@ ul.nav a:hover {
 }
 
 .quick-link {
-  position: fixed;
+  position: relative;
+  padding: 10px 0 1px;
   bottom: 0;
   background-color: #0d1526;
   color: #999;
@@ -76,8 +77,8 @@ ul.nav a:hover {
 }
 
 .image-size{
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 275px;
 }
 
 .footer {
