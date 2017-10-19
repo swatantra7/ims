@@ -44,37 +44,38 @@ html
         - if alert
           p.alert.alert-danger
             = alert
-    = yield
-  - if user_signed_in?
-    .footer.space-20
-      .container.no-padding
-        .col-md-6.no-padding.col-xs-7.col-sm-8
-          small.copyright Copyright © RBA Computers #{Time.now.year}, All Rights Reserved
-        .pull-right
-          span RBA
-  - else
-    br
-    footer
-      .container
-        .col-sm-4
-          .row
-            h4 = 'Address:'
-            p style= "color:#ccc;"
-              | Dilip Electronic Main Road Lachragardh
-          .row
-        .col-sm-1
-        .col-sm-3
-          .row
-            h4 = 'Contact:'
-            p style= "color:#ccc;"
-              | +91 - 7544802173 
-              br
-              | +91 - 9430742215
-          .row
-        .col-sm-1
-        .col-sm-3
-          .row
-            h4 = 'Email:'
-            p style= "color:#ccc;"
-              | rbacomputercenter@gmail.com
-          .row
+      #content
+        = yield
+    - if user_signed_in?
+      .footer.space-20
+        .container.no-padding
+          .col-md-6.no-padding.col-xs-7.col-sm-8
+            small.copyright Copyright © RBA Computers #{Time.now.year}, All Rights Reserved
+          .pull-right
+            span RBA
+    - else
+      br
+      footer
+        .container
+          .col-sm-4
+            .row
+              h4 = 'Address:'
+              p style= "color:#ccc;"
+                | Dilip Electronic Main Road Lachragardh
+            .row
+          .col-sm-1
+          .col-sm-3
+            .row
+              h4 = 'Contact:'
+              p style= "color:#ccc;"
+                | +91 - 7544802173 
+                br
+                | +91 - 9430742215
+            .row
+          .col-sm-1
+          .col-sm-3
+            .row
+              h4 = 'Email:'
+              p style= "color:#ccc;"
+                | rbacomputercenter@gmail.com
+            .row
