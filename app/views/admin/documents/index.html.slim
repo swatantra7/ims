@@ -2,6 +2,7 @@
   .row
     = link_to 'Add New Images', new_admin_document_path, class: 'btn btn-success pull-right'
   - @documents.each do |document|
-    .col-sm-4
-      .panel-body.no-padding
-        = image_tag document.document_list.url, class: 'image-size'
+    .col-xs-8.col-md-4
+      .panel
+        .panel-body
+          = image_tag document.document_list.url, class: 'image-size'
