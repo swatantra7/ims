@@ -16,7 +16,9 @@ class Member < ApplicationRecord
   attr_reader :course
 
   def name
-    first_name + '' + middle_name + ''+  last_name if first_name.present? && middle_name.present?
+    full_name = ''
+    full_name << first_name.to_s << middle_name.to_s << last_name.to_s
+    full_name
   end
 
 end
