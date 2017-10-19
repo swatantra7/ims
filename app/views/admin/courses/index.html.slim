@@ -1,23 +1,25 @@
 .space-20
 h4.text-center = t('.courses')
-.pull-right.space-20
-  = link_to t('.add_new_course'), new_admin_course_path, remote: true, class: ' btn btn-success'
-.col-md-12
-  .table-wrapper
-    .table-responsive
-      table.table.table-bordered.table-striped#bootstrap-table
-        thead
-          tr
-            th data-sortable='true' = t('general.reference_id')
-            th data-sortable='true' = t('.name')
-            th data-sortable= 'true' = t('.duration_of_course')
-            th data-sortable='true' = t('general.updated_at')
-            th data-sortable='true' = t('general.created_at')
-        tbody
-          - @courses.each do |course|
-            tr
-              td = course.id
-              td = course.name
-              td = course.interval
-              td = course.created_at
-              td = course.updated_at
+.container
+  .row
+    = link_to t('.add_new_course'), new_admin_course_path, remote: true, class: ' btn btn-success pull-right'
+  .space-20
+    .col-md-12
+      .table-wrapper
+        .table-responsive
+          table.table.table-bordered.table-striped#bootstrap-table
+            thead
+              tr
+                th data-sortable='true' = t('general.reference_id')
+                th data-sortable='true' = t('.name')
+                th data-sortable= 'true' = t('.duration_of_course')
+                th data-sortable='true' = t('general.updated_at')
+                th data-sortable='true' = t('general.created_at')
+            tbody
+              - @courses.each do |course|
+                tr
+                  td = course.id
+                  td = course.name
+                  td = course.interval
+                  td = course.created_at
+                  td = course.updated_at

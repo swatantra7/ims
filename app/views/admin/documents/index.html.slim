@@ -1,8 +1,7 @@
-.row.pull-right
-  = link_to 'Add New Images', new_admin_document_path, class: 'btn btn-success'
-.space-20
+.container
   .row
-    - @documents.each do |document|
-      .col-sm-4
-        .panel-body.no-padding
-          = image_tag document.document_list.url, class: 'image-size'
+    = link_to 'Add New Images', new_admin_document_path, class: 'btn btn-success pull-right'
+  - @documents.each do |document|
+    .col-sm-4
+      .panel-body.no-padding
+        = image_tag document.document_list.url, class: 'image-size'

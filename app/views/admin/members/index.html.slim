@@ -1,26 +1,27 @@
 h4.text-center = "Member Of #{params[:course]}"
-.pull-right.space-20
-  = link_to t('.add_new_student'), new_admin_member_path(course: params[:course]), remote: true, class: 'btn btn-success'
-.col-md-12
-  .table-wrapper
-    .table-responsive
-      table.table.table-bordered.table-striped#bootstrap-table
-        thead
-          tr
-            th data-sortable='true' = t('general.reference_id')
-            th data-sortable='true' = t('.name')
-            th data-sortable='true' = t('.email')
-            th data-sortable='true' = t('.address')
-            th data-sortable='true' = t('.fees')
-            th data-sortable='true' = t('.mobile_number')
-            th data-sortable= 'true' = t('general.updated_at')
-        tbody
-          - @members.each do |member|
+.container
+  .row
+    = link_to t('.add_new_student'), new_admin_member_path(course: params[:course]), remote: true, class: 'btn btn-success pull-right'
+  .col-md-12
+    .table-wrapper
+      .table-responsive
+        table.table.table-bordered.table-striped#bootstrap-table
+          thead
             tr
-              td = member.id
-              td = member.name
-              td = member.email_id
-              td = member.address.try(:address)
-              td = member.fees
-              td = member.mobile_number
-              td = member.updated_at
+              th data-sortable='true' = t('general.reference_id')
+              th data-sortable='true' = t('.name')
+              th data-sortable='true' = t('.email')
+              th data-sortable='true' = t('.address')
+              th data-sortable='true' = t('.fees')
+              th data-sortable='true' = t('.mobile_number')
+              th data-sortable= 'true' = t('general.updated_at')
+          tbody
+            - @members.each do |member|
+              tr
+                td = member.id
+                td = member.name
+                td = member.email_id
+                td = member.address.try(:address)
+                td = member.fees
+                td = member.mobile_number
+                td = member.updated_at
