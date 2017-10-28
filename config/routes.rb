@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     resources :members
     resources :courses
     resources :documents
+    resources :certificates do 
+      member do 
+        get :download
+      end
+    end
   end
 
   authenticated :user do

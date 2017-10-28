@@ -1,0 +1,26 @@
+- if is_pdf_request?
+  = wicked_pdf_stylesheet_link_tag 'application'
+.container.bordered
+  .space-40
+    .row
+      .col-md-12
+        br
+          center
+            span
+              = image_tag wicked_pdf_asset_base64('certificate_logo.png')
+          br
+          br
+          center
+            h3 style = "line height:1.8em;"
+              | This is To Certify That
+            br
+            h3 style = "line height:1.8em;" = "#{@certificate.member_name}"
+          br
+          h4 style = "line height:1.8em;"
+            | 
+              has completed the course #{@certificate.course_name} of #{@certificate.course_duration} months
+              and hereby awarded this certificate
+          br
+          br
+            .pull-right
+              label.control-label = "Date: #{Date.today}"

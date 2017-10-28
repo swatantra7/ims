@@ -23,6 +23,10 @@ gem 'high_voltage'
 
 gem 'paperclip'
 gem 'ruby_regex', '0.1.1'
+gem 'whenever', require: false
+gem 'wicked_pdf', '1.1.0'
+gem 'wkhtmltopdf-binary', '0.12.3.1'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -51,7 +55,7 @@ gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
+  gem 'mysql2'
 end
 
 group :development do

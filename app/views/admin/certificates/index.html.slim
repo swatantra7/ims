@@ -1,0 +1,23 @@
+.space-20
+  h4.text-center = t('.certificates')
+.container
+  .space-20
+    .col-md-12
+      .table-wrapper
+        .table-responsive
+          table.table.table-bordered.table-striped#bootstrap-table
+            thead
+              tr
+                th data-sortable='true' = t('.reference_id')
+                th data-sortable='true' = t('.member_name')
+                th data-sortable='true' = t('.course_name')
+                th data-sortable='true' = t('.course_duration')
+                th  = t('.action')
+            tbody
+              - @cerificates.each do |certificate|
+                  tr
+                    td = certificate.id
+                    td = certificate.member_name
+                    td = certificate.course_name
+                    td = certificate.course_duration
+                    td = link_to t('.download Certificate'), download_admin_certificate_path(certificate, format: :pdf), class: 'btn btn-success'

@@ -8,8 +8,11 @@ module ApplicationHelper
   end
 
   def custom_navigation
-    puts "11111111111"
     'navbar-navbar-default.custom-nav' 
+  end
+
+  def is_pdf_request?
+    params[:format] == 'pdf'
   end
 
 end

@@ -21,6 +21,8 @@ $(document).ready(function(){
     pagination: true,
     pageList: [10, 20, 50, 100, 200]
   });
+
 });
+
 
 

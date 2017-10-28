@@ -10,6 +10,7 @@ SimpleNavigation::Configuration.run do |navigation|
     end
     primary.item :upload_images, 'Upload Images', admin_documents_path
     primary.item :course, 'Courses', admin_courses_path
+    primary.item :generated_certificate, 'GeneratedCertificate',  admin_certificates_path
     primary.dom_class = 'nav navbar-nav'
     primary.dropdown = true
     primary.split = false

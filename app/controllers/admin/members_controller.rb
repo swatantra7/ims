@@ -8,6 +8,7 @@ class Admin::MembersController < AdminController
 
   def new
     @member = @course.members.build
+    @member.course_duration = @course.interval
     @address = @member.build_address
   end
 
@@ -15,8 +16,19 @@ class Admin::MembersController < AdminController
     @member = @course.members.new(member_params)
     if @course.save && @member.save
       respond_to do |format|
+        flash[:notice] = 'Member is created successfully'
         format.js
       end
+    else
+      render 'new'
+    end
+  end
+
+  def destroy
+    @member = Member.find(params[:id])
+    if @member.destroy
+        flash[:notice] = 'Member is destroyed successfully'
+        redirect_to admin_members_path(course: params[:course])
     else
       render 'new'
     end
@@ -32,6 +44,7 @@ class Admin::MembersController < AdminController
   def member_params
     params.require(:member).permit(
       :fees,
+      :course_duration,
       address_attributes:
       [
         :first_name,
