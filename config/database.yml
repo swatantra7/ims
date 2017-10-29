@@ -22,13 +22,13 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: example 
+  database: ims_production
   username: root 
   password: root
 
 production:
   <<: *default
-  database: example 
+  database: ims_development
   username: root 
   password: root
     
