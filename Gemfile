@@ -20,6 +20,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap_form', '2.3.0'
 gem "bootstrap-table-rails"
 gem 'high_voltage'
+gem 'aws-sdk', '~> 2.3.0'
+gem 'figaro'
 
 gem 'paperclip'
 gem 'ruby_regex', '0.1.1'

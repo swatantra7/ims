@@ -1,7 +1,8 @@
 class Document < ApplicationRecord
 
   has_attached_file :document_list,
-           styles: { medium: "300x300>", thumb: "100x100>" }
+           styles: { medium: "300x300>", thumb: "100x100>"},
+           s3_protocol: 'https'
 
   validates :document_list,
              presence: true
